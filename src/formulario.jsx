@@ -1,4 +1,6 @@
-export function Formulario() {
+
+
+export default function Formulario() {
  return (
     <>
 <h1>📝 Formulario de Inscripción dela Gran Maraton</h1>
