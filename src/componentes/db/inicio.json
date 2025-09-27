@@ -1,0 +1,34 @@
+[
+    {
+        "titulo": "📅 Fecha y lugar",
+        "items": [
+            "Día: 23 de octubre de 2025",
+            "Hora de largada: 10:00 A.M.",
+            "Lugar: Parque Adán Quiroga"
+        ]
+    },
+    {
+        "titulo": "🏅 Distancias disponibles",
+        "items": [
+            "5K 🏃 Para los que recién empiezan.",
+            "10K 🏃 Para quienes buscan superarse.",
+            "21K y 42K 🏃 Para los más apasionados del running."
+        ]
+    },
+    {
+        "titulo": "🎁 Tu inscripción incluye",
+        "items": [
+            "Remera oficial del evento.",
+            "Número de corredor.",
+            "Medalla finisher para todos los que crucen la meta."
+        ]
+    },
+    {
+        "titulo": "📍 Servicios en la carrera",
+        "items": [
+            "Puestos de hidratación en el recorrido.",
+            "Asistencia médica y ambulancias.",
+            "Guardarropas y puestos de animación."
+        ]
+    }
+]

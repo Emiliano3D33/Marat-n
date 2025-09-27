@@ -1,4 +1,4 @@
-
+import "./formulario.css"
 
 export default function Formulario() {
   return (
@@ -6,18 +6,18 @@ export default function Formulario() {
       <h1>Formulario de Inscripción - Maratón</h1>
       <form id="inscripcion" action="#" method="post">
         <h3>Datos personales</h3>
-
-        <p>
-          ¿Padece alguna enfermedad crónica?
-          <br />
-          <label>
-            <input type="radio" name="enf_cronica" value="Sí" required /> Sí
-          </label>
-          <label>
-            <input type="radio" name="enf_cronica" value="No" /> No
-          </label>
-        </p>
-
+      
+          <p>
+            ¿Padece alguna enfermedad crónica?
+            <br />
+            <label>
+              <input type="radio" name="enf_cronica" value="Sí" required /> Sí
+            </label>
+            <label>
+              <input type="radio" name="enf_cronica" value="No" /> No
+            </label>
+          </p>
+      
         <p>
           <label>
             Si respondió “Sí”, especificar:

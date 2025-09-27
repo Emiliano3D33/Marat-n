@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { Persona } from './persona'
-import './App.css'
-import Formulario from './formulario'
+import Pagina_principal from './componentes/Pagina_principal'
+import Formulario from './componentes/formulario';
+
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
     <> 
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Persona/>} />
+          <Route path="/" element={<Pagina_principal/>} />
           <Route path='/formulario' element={<Formulario />} />
         </Routes>
       </BrowserRouter>
