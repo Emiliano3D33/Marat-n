@@ -22,6 +22,7 @@ export default function Pagina_principal() {
                         {seccion.items.map((items, i) => <li key={i}>{items}</li>)}
                     </ul>
                 </div>
+                
             ))}
 
             <p>👉 No te quedes afuera. Los cupos son limitados.</p>

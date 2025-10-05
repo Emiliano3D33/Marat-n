@@ -191,6 +191,7 @@ export default function Formulario() {
             declaración
           </label>
         </p>
+        
 
         <p>
           <button type="submit">Enviar inscripción</button>
