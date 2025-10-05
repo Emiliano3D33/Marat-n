@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom'
-import "./pagina_principal.css"
+import "./diseño_principal.css"
 import inicio from './db/inicio.json'
 
 export default function Pagina_principal() {
