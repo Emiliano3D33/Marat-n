@@ -9,39 +9,49 @@ export default function Formulario() {
     auriculares: 0,
   });
 
-  // Maneja cambio de cantidad
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProductos({ ...productos, [name]: Number(value) });
   };
 
-  // Calcula productos seleccionados
   const productosSeleccionados = Object.entries(productos).filter(
     ([key, cantidad]) => cantidad > 0
   );
 
   return (
     <>
-      <h1>Formulario de Inscripción - Maratón</h1>
-      <form id="inscripcion" action="#" method="post">
-        <h3>Datos personales</h3>
+      <form
+        id="miformulario"
+        action="https://formspree.io/f/xgvnznzw"
+        method="POST"
+      >
+        <h1>Formulario de Inscripción - Maratón</h1>
 
-        {/* Campos existentes */}
+        <div className="formularioh3">
+          <h3>Datos personales</h3>
+        </div>
+
         <p>
-          <br />Nombre completo
+          <br />
+          Nombre completo
           <br />
           <label>
-            <input type="text" />
+            <input type="text" name="nombre" required />
           </label>
-           <br />Teléfono:
-           <br /><label>
-            <input type="text" />
-            <br /> Ingrese su email
-            <br /> <label>
-              <input type="email" />
-            </label>
-           </label>
-          <br />¿Padece alguna enfermedad crónica?
+          <br />
+          Teléfono:
+          <br />
+          <label>
+            <input type="text" name="telefono" required />
+          </label>
+          <br />
+          Ingrese su email
+          <br />
+          <label>
+            <input type="email" name="email" required />
+          </label>
+          <br />
+          ¿Padece alguna enfermedad crónica?
           <br />
           <label>
             <input type="radio" name="enf_cronica" value="Sí" required /> Sí
@@ -96,7 +106,9 @@ export default function Formulario() {
           </label>
         </p>
 
-        <h3>Contacto de emergencia</h3>
+        <div className="formularioh3">
+          <h3>Contacto de emergencia</h3>
+        </div>
 
         <p>
           <label>
@@ -122,16 +134,18 @@ export default function Formulario() {
           </label>
         </p>
 
-        {/* NUEVO: Productos con cantidades */}
-        <h3>Productos adicionales</h3>
-        <p>
-          Elige los productos que deseas comprar:
-        </p>
+        <div className="formularioh3">
+          <h3>Productos adicionales</h3>
+        </div>
+        <p>Elige los productos que deseas comprar:</p>
+
         {["gorra", "gafas", "medias", "auriculares"].map((prod) => (
           <p key={prod}>
             <label>
               <input
                 type="checkbox"
+                name={`producto_${prod}`}
+                value={productos[prod] > 0 ? productos[prod] : ""}
                 checked={productos[prod] > 0}
                 onChange={(e) =>
                   setProductos({
@@ -146,7 +160,7 @@ export default function Formulario() {
               <input
                 type="number"
                 min="1"
-                name={prod}
+                name={`producto_${prod}`}
                 value={productos[prod]}
                 onChange={handleChange}
                 style={{ width: "60px", marginLeft: "10px" }}
@@ -155,7 +169,6 @@ export default function Formulario() {
           </p>
         ))}
 
-        {/* Mini carrito */}
         {productosSeleccionados.length > 0 && (
           <div className="carrito">
             <h4>Mini Carrito:</h4>
@@ -169,8 +182,10 @@ export default function Formulario() {
           </div>
         )}
 
+        <div className="formularioh3">
+          <h3>Declaración y aceptación</h3>
+        </div>
 
-        <h3>Declaración y aceptación</h3>
         <p>
           Declaro bajo juramento que los datos proporcionados son verídicos y
           que me encuentro en condiciones físicas adecuadas para participar en
@@ -191,7 +206,6 @@ export default function Formulario() {
             declaración
           </label>
         </p>
-        
 
         <p>
           <button type="submit">Enviar inscripción</button>

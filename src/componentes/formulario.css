@@ -1,4 +1,4 @@
-/* ===== formulario.css - Versión tienda online ===== */
+
 
 /* Mini carrito */
 .carrito {
@@ -27,25 +27,10 @@
   color: #2c3e50;
 }
 
-/* Fondo y fuente general */
-body {
-  font-family: 'Roboto', sans-serif;
-  background: linear-gradient(to right, #74ebd5, #acb6e5);
-  margin: 0;
-  padding: 20px;
-  color: #2c3e50;
-}
 
-/* ===== Títulos centrados ===== */
-h1 {
-  text-align: center;
-  color: #fff;
-  font-size: 28px;
-  margin-bottom: 25px;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-}
 
-h3 {
+
+.formularioh3 > h3 {
   text-align: center;
   color: #fff;
   margin-top: 25px;
@@ -57,13 +42,13 @@ h3 {
 
 /* ===== Formulario ===== */
 form {
-  max-width: 650px;
+  max-width: 750px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.95);
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  text-align: left; /* Todo el contenido (inputs, labels, etc.) alineado a la izquierda */
+  text-align: left; 
 }
 
 p {
@@ -132,7 +117,7 @@ button:hover {
   }
 
   h1 {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   h3 {

@@ -1,4 +1,4 @@
-/* ===== RESET GENERAL ===== */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,36 +6,51 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  /* tipografía elegante y moderna */
   color: #333;
   min-height: 100vh;
   padding: 30px;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to right, #74ebd5, #acb6e5);
+  margin: auto;
+  color: #2c3e50;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  /* Fondo degradado animado */
   background-color: white;
   animation: gradientBG 15s ease infinite;
   animation: fadeIn 1.2s ease-in-out;
+
+}
+
+
+.contenedor {
+  background-color: white;
+  padding: 10px;
+  border-radius: 1em;
+  max-width: 900px;
+
 }
 
 
 
-
-
-/* ===== TITULOS ===== */
 h1 {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 3rem;
   color: white;
   font-weight: 800;
-  margin-bottom: 10px;
   padding: 30px;
   background-color: aqua;
-  
+  border-radius: 0.5em;
+  padding: 1em;
+  margin-bottom: 20px;
 }
+
+
+
+
 
 h2 {
   text-align: center;
@@ -56,7 +71,7 @@ h3 {
 
 }
 
-/* ===== PARRAFOS LIMPIOS ===== */
+
 p {
   margin: auto;
   margin-bottom: 18px;
@@ -70,7 +85,7 @@ p {
   width: 100%;
 }
 
-/* ===== LISTAS LIMPIAS ===== */
+
 ul {
   list-style: disc inside;
   margin-bottom: 18px;
@@ -86,15 +101,14 @@ ul li {
   background-color: white;
 }
 
-/* ===== BOTON DE INSCRIPCION ===== */
 
-.boton_centrado{
+.boton_centrado {
   text-align: center;
   margin: 50px;
-  
+
 }
 
-.registrarse{
+.registrarse {
   text-decoration: none;
   background: linear-gradient(135deg, #60a5fa, #f9a8d4);
   color: #ffffff;
@@ -104,8 +118,8 @@ ul li {
   font-weight: 600;
   transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-   display: inline-block;
-   min-width: 450px;
+  display: inline-block;
+  min-width: 450px;
 }
 
 .registrarse:hover {
@@ -118,6 +132,7 @@ ul li {
     color: #213547;
     background-color: #ffffff;
   }
+
   .registrarse:hover {
     color: #747bff;
   }
@@ -150,7 +165,14 @@ ul li {
   ul li {
     font-size: 0.9rem;
   }
+
+  .contenedor{
+    max-width: 600px;
+  }
+
+
 }
+
 
 @media (max-width: 480px) {
   h1 {
@@ -171,9 +193,15 @@ ul li {
     min-width: 300px;
 
   }
+
+  .contenedor{
+    min-width: 250px;
+  }
+
+
 }
 
-/* ===== ANIMACION DE GRADIENTE ===== */
+
 @keyframes gradientBG {
   0% {
     background-position: 0% 50%;
@@ -188,7 +216,7 @@ ul li {
   }
 }
 
-/* ===== ANIMACION GENERAL ===== */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -205,9 +233,15 @@ ul li {
 .decoracion {
   background-color: white;
   border-radius: 20px;
-  border: 3px solid black;
-  margin: 20px;
+  border: 1px solid black;
+  margin: 30px;
   justify-content: center;
   align-items: center;
 
+}
+
+.pagina1 {
+  background-color: white;
+  border-radius: 15px;
+  padding: 1em;
 }
