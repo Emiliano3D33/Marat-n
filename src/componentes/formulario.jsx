@@ -9,6 +9,13 @@ export default function Formulario() {
     auriculares: 0,
   });
 
+  const precios = {
+    gorra: 1500,
+    gafas: 3200,
+    medias: 800,
+    auriculares: 4500,
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     const producto = name.replace("cantidad_", "");
@@ -17,6 +24,11 @@ export default function Formulario() {
 
   const productosSeleccionados = Object.entries(productos).filter(
     ([key, cantidad]) => cantidad > 0
+  );
+
+  const totalCarrito = productosSeleccionados.reduce(
+    (acc, [nombre, cantidad]) => acc + precios[nombre] * cantidad,
+    0
   );
 
   return (
@@ -138,56 +150,63 @@ export default function Formulario() {
         <div className="formularioh3">
           <h3>Productos adicionales</h3>
         </div>
+        
         <p>Elige los productos que deseas comprar:</p>
 
-        {["gorra", "gafas", "medias", "auriculares"].map((prod) => (
-          <p key={prod}>
-            <label>
-              <input
-                type="checkbox"
-                checked={productos[prod] > 0}
-                onChange={(e) =>
-                  setProductos({
-                    ...productos,
-                    [prod]: e.target.checked ? 1 : 0,
-                  })
-                }
-              />
-              {prod.charAt(0).toUpperCase() + prod.slice(1)}
-            </label>
+        <form
+          id="miformulario"
+          action="https://formspree.io/f/xgvnznzw"
+          method="POST"
+        >
+        
 
-            {productos[prod] > 0 && (
-              <>
+          {["gorra", "gafas", "medias", "auriculares"].map((prod) => (
+            <div key={prod} className="producto-item">
+              <label className="producto-label">
                 <input
-                  type="number"
-                  min="1"
-                  name={`cantidad_${prod}`}
-                  value={productos[prod]}
-                  onChange={handleChange}
-                  style={{ width: "60px", marginLeft: "10px" }}
+                  type="checkbox"
+                  checked={productos[prod] > 0}
+                  onChange={(e) =>
+                    setProductos({
+                      ...productos,
+                      [prod]: e.target.checked ? 1 : 0,
+                    })
+                  }
                 />
-                <input
-                  type="hidden"
-                  name={`producto_${prod}`}
-                  value="Sí"
-                />
-              </>
-            )}
-          </p>
-        ))}
+                {prod.charAt(0).toUpperCase() + prod.slice(1)} (${precios[prod]})
+              </label>
 
-        {productosSeleccionados.length > 0 && (
-          <div className="carrito">
-            <h4>Mini Carrito:</h4>
-            <ul>
-              {productosSeleccionados.map(([nombre, cantidad]) => (
-                <li key={nombre}>
-                  {nombre.charAt(0).toUpperCase() + nombre.slice(1)}: {cantidad}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+              {productos[prod] > 0 && (
+                <>
+                  <input
+                    type="number"
+                    min="1"
+                    name={`cantidad_${prod}`}
+                    value={productos[prod]}
+                    onChange={handleChange}
+                    className="producto-cantidad"
+                  />
+                  <input type="hidden" name={`producto_${prod}`} value="Sí" />
+                </>
+              )}
+            </div>
+          ))}
+
+          {productosSeleccionados.length > 0 && (
+            <div className="carrito">
+              <h4>Mini Carrito:</h4>
+              <ul>
+                {productosSeleccionados.map(([nombre, cantidad]) => (
+                  <li key={nombre}>
+                    {nombre.charAt(0).toUpperCase() + nombre.slice(1)}: {cantidad} × ${precios[nombre]} = ${precios[nombre] * cantidad}
+                  </li>
+                ))}
+              </ul>
+              <p><strong>Total: ${totalCarrito}</strong></p>
+              <input type="hidden" name="total_carrito" value={totalCarrito} />
+            </div>
+          )}
+        </form>
 
         <div className="formularioh3">
           <h3>Declaración y aceptación</h3>

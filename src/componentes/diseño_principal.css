@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -166,7 +165,7 @@ ul li {
     font-size: 0.9rem;
   }
 
-  .contenedor{
+  .contenedor {
     max-width: 600px;
   }
 
@@ -194,7 +193,7 @@ ul li {
 
   }
 
-  .contenedor{
+  .contenedor {
     min-width: 250px;
   }
 
@@ -244,4 +243,20 @@ ul li {
   background-color: white;
   border-radius: 15px;
   padding: 1em;
+}
+
+.producto-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.producto-label {
+  flex-shrink: 0;
+  min-width: 120px;
+}
+
+.producto-cantidad {
+  width: 60px;
 }

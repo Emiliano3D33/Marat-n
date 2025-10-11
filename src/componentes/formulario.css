@@ -128,3 +128,10 @@ button:hover {
     width: 100%;
   }
 }
+
+.productos{
+  width: 100%;
+  padding: 10px;
+  border-radius: 1em;
+
+}
