@@ -11,7 +11,8 @@ export default function Formulario() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setProductos({ ...productos, [name]: Number(value) });
+    const producto = name.replace("cantidad_", "");
+    setProductos({ ...productos, [producto]: Number(value) });
   };
 
   const productosSeleccionados = Object.entries(productos).filter(
@@ -144,8 +145,6 @@ export default function Formulario() {
             <label>
               <input
                 type="checkbox"
-                name={`producto_${prod}`}
-                value={productos[prod] > 0 ? productos[prod] : ""}
                 checked={productos[prod] > 0}
                 onChange={(e) =>
                   setProductos({
@@ -156,15 +155,23 @@ export default function Formulario() {
               />
               {prod.charAt(0).toUpperCase() + prod.slice(1)}
             </label>
+
             {productos[prod] > 0 && (
-              <input
-                type="number"
-                min="1"
-                name={`producto_${prod}`}
-                value={productos[prod]}
-                onChange={handleChange}
-                style={{ width: "60px", marginLeft: "10px" }}
-              />
+              <>
+                <input
+                  type="number"
+                  min="1"
+                  name={`cantidad_${prod}`}
+                  value={productos[prod]}
+                  onChange={handleChange}
+                  style={{ width: "60px", marginLeft: "10px" }}
+                />
+                <input
+                  type="hidden"
+                  name={`producto_${prod}`}
+                  value="Sí"
+                />
+              </>
             )}
           </p>
         ))}
