@@ -64,13 +64,15 @@ export default function Formulario() {
             <h3>¿Padece alguna enfermedad crónica?</h3>
           </div>
 
-          <label htmlFor="enf_cronica_si">
-            <input type="radio" id="enf_cronica_si" name="enf_cronica" value="Sí" required /> Sí
-          </label>
+          <div className="casillero">
+            <label htmlFor="enf_cronica_si">
+              <input type="radio" id="enf_cronica_si" name="enf_cronica" value="Sí" required /> Sí
+            </label>
 
-          <label htmlFor="enf_cronica_no">
-            <input type="radio" id="enf_cronica_no" name="enf_cronica" value="No" /> No
-          </label>
+            <label htmlFor="enf_cronica_no">
+              <input type="radio" id="enf_cronica_no" name="enf_cronica" value="No" /> No
+            </label>
+          </div>
         </div>
 
         <label htmlFor="especificar_enf" className="centrar1">
@@ -82,13 +84,15 @@ export default function Formulario() {
           <h3>¿Está bajo tratamiento médico actualmente?</h3>
         </div>
 
-        <label htmlFor="tratamiento_si">
-          <input type="radio" id="tratamiento_si" name="tratamiento" value="Sí" required /> Sí
-        </label>
-        <br />
-        <label htmlFor="tratamiento_no">
-          <input type="radio" id="tratamiento_no" name="tratamiento" value="No" /> No
-        </label>
+        <div className="casillero">
+          <label htmlFor="tratamiento_si">
+            <input type="radio" id="tratamiento_si" name="tratamiento" value="Sí" required /> Sí
+          </label>
+          <br />
+          <label htmlFor="tratamiento_no">
+            <input type="radio" id="tratamiento_no" name="tratamiento" value="No" /> No
+          </label>
+        </div>
 
         <label htmlFor="medicacion">
           Medicación:
@@ -98,7 +102,7 @@ export default function Formulario() {
 
         <label htmlFor="alergias">
           Alergias (medicamentos, alimentos, etc.):
-  
+
           <input id="alergias" name="alergias" type="text" />
         </label>
 
@@ -192,11 +196,13 @@ export default function Formulario() {
           Declaro bajo juramento que los datos proporcionados son verídicos y
           que me encuentro en condiciones físicas adecuadas para participar en
           la Maratón.
-          <br />
+        </p>
+        <p>
           Eximo a la organización, sponsors y autoridades de cualquier
           responsabilidad por accidentes, lesiones o daños que pudieran ocurrir
           durante la competencia.
-          <br />
+        </p>
+        <p>
           Acepto el reglamento oficial de la carrera y autorizo el uso de mi
           imagen en fotografías y videos tomados durante el evento para fines
           promocionales.
@@ -211,7 +217,7 @@ export default function Formulario() {
         <p>
           <button type="submit">Enviar inscripción</button>
         </p>
-      </form>
+      </form >
     </>
   );
 }
