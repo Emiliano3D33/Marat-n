@@ -1,5 +1,3 @@
-
-
 /* Mini carrito */
 .carrito {
   background: #ecf0f1;
@@ -30,7 +28,7 @@
 
 
 
-.formularioh3 > h3 {
+.formularioh3>h3 {
   text-align: center;
   color: #fff;
   margin-top: 25px;
@@ -48,13 +46,9 @@ form {
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  text-align: left; 
+  text-align: left;
 }
 
-p {
-  margin-bottom: 18px;
-  line-height: 1.6;
-}
 
 label {
   display: block;
@@ -65,6 +59,7 @@ label {
 
 input[type="text"],
 input[type="tel"],
+input[type="email"],
 select {
   width: 100%;
   padding: 10px 12px;
@@ -77,6 +72,7 @@ select {
 
 input[type="text"]:focus,
 input[type="tel"]:focus,
+input[type="email"]:focus,
 select:focus {
   border-color: #27ae60;
   box-shadow: 0 0 6px rgba(39, 174, 96, 0.5);
@@ -129,9 +125,24 @@ button:hover {
   }
 }
 
-.productos{
+.productos {
   width: 100%;
   padding: 10px;
   border-radius: 1em;
 
+}
+
+.parrafos{
+  margin: auto;
+  margin-bottom: 18px;
+  line-height: 1.8;
+  color: #444;
+  max-width: 800px;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  width: 100%;
+}
+
+.centrar1{
+  text-align: center;
 }

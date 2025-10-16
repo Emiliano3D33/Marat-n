@@ -74,7 +74,7 @@ h3 {
 p {
   margin: auto;
   margin-bottom: 18px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 1.8;
   color: #444;
   max-width: 800px;
@@ -95,7 +95,7 @@ ul {
 
 ul li {
   margin: 6px 0;
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 1.6;
   background-color: white;
 }
@@ -146,7 +146,7 @@ ul li {
 
 @media (max-width: 768px) {
   h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   h2 {
@@ -175,7 +175,7 @@ ul li {
 
 @media (max-width: 480px) {
   h1 {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
   }
 
   h2 {

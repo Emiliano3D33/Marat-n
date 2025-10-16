@@ -44,169 +44,145 @@ export default function Formulario() {
           <h3>Datos personales</h3>
         </div>
 
-        <p>
-          <br />
-          Nombre completo
-          <br />
-          <label>
-            <input type="text" name="nombre" required />
+        <div id="parrafos">
+          <label htmlFor="nombre">
+            Nombre completo:
+            <input type="text" id="nombre" name="nombre" required />
           </label>
-          <br />
-          Teléfono:
-          <br />
-          <label>
-            <input type="text" name="telefono" required />
-          </label>
-          <br />
-          Ingrese su email
-          <br />
-          <label>
-            <input type="email" name="email" required />
-          </label>
-          <br />
-          ¿Padece alguna enfermedad crónica?
-          <br />
-          <label>
-            <input type="radio" name="enf_cronica" value="Sí" required /> Sí
-          </label>
-          <br />
-          <label>
-            <input type="radio" name="enf_cronica" value="No" /> No
-          </label>
-        </p>
 
-        <p>
-          <label>
-            Si respondió “Sí”, especificar:
-            <br />
-            <input name="especificar_enf" type="text" />
+          <label htmlFor="telefono">
+            Teléfono:
+            <input type="text" id="telefono" name="telefono" required />
           </label>
-        </p>
 
-        <p>
-          ¿Está bajo tratamiento médico actualmente?
+          <label htmlFor="email">
+            Ingrese su email:
+            <input type="email" id="email" name="email" required />
+          </label>
+
+          <div className="formularioh3">
+            <h3>¿Padece alguna enfermedad crónica?</h3>
+          </div>
+
+          <label htmlFor="enf_cronica_si">
+            <input type="radio" id="enf_cronica_si" name="enf_cronica" value="Sí" required /> Sí
+          </label>
+
+          <label htmlFor="enf_cronica_no">
+            <input type="radio" id="enf_cronica_no" name="enf_cronica" value="No" /> No
+          </label>
+        </div>
+
+        <label htmlFor="especificar_enf" className="centrar1">
+          Si respondió “Sí”, especificar:
+          <input id="especificar_enf" name="especificar_enf" type="text" />
+        </label>
+
+        <div className="formularioh3">
+          <h3>¿Está bajo tratamiento médico actualmente?</h3>
+        </div>
+
+        <label htmlFor="tratamiento_si">
+          <input type="radio" id="tratamiento_si" name="tratamiento" value="Sí" required /> Sí
+        </label>
+        <br />
+        <label htmlFor="tratamiento_no">
+          <input type="radio" id="tratamiento_no" name="tratamiento" value="No" /> No
+        </label>
+
+        <label htmlFor="medicacion">
+          Medicación:
           <br />
-          <label>
-            <input type="radio" name="tratamiento" value="Sí" required /> Sí
-          </label>
-          <br />
-          <label>
-            <input type="radio" name="tratamiento" value="No" /> No
-          </label>
-        </p>
+          <input id="medicacion" name="medicacion" type="text" />
+        </label>
 
-        <p>
-          <label>
-            Medicación:
-            <br />
-            <input name="medicacion" type="text" />
-          </label>
-        </p>
+        <label htmlFor="alergias">
+          Alergias (medicamentos, alimentos, etc.):
+  
+          <input id="alergias" name="alergias" type="text" />
+        </label>
 
-        <p>
-          <label>
-            Alergias (medicamentos, alimentos, etc.):
-            <br />
-            <input name="alergias" type="text" />
-          </label>
-        </p>
-
-        <p>
-          <label>
-            Grupo sanguíneo:
-            <br />
-            <input name="grupo_sangre" type="text" />
-          </label>
-        </p>
+        <label htmlFor="grupo_sangre">
+          Grupo sanguíneo:
+          <input id="grupo_sangre" name="grupo_sangre" type="text" />
+        </label>
 
         <div className="formularioh3">
           <h3>Contacto de emergencia</h3>
         </div>
 
-        <p>
-          <label>
-            Nombre y apellido:
-            <br />
-            <input name="emerg_nombre" type="text" required />
-          </label>
-        </p>
+        <label htmlFor="emerg_nombre">
+          Nombre y apellido:
+          <input id="emerg_nombre" name="emerg_nombre" type="text" required />
+        </label>
 
-        <p>
-          <label>
-            Teléfono:
-            <br />
-            <input name="emerg_telefono" type="tel" required />
-          </label>
-        </p>
+        <label htmlFor="emerg_telefono">
+          Teléfono:
+          <input id="emerg_telefono" name="emerg_telefono" type="tel" required />
+        </label>
 
-        <p>
-          <label>
-            Vínculo:
-            <br />
-            <input name="emerg_vinculo" type="text" />
-          </label>
-        </p>
+        <label htmlFor="emerg_vinculo">
+          Vínculo:
+          <input id="emerg_vinculo" name="emerg_vinculo" type="text" />
+        </label>
 
         <div className="formularioh3">
           <h3>Productos adicionales</h3>
         </div>
-        
+
         <p>Elige los productos que deseas comprar:</p>
 
-        <form
-          id="miformulario"
-          action="https://formspree.io/f/xgvnznzw"
-          method="POST"
-        >
-        
+        {["gorra", "gafas", "medias", "auriculares"].map((prod) => (
+          <div key={prod} className="producto-item">
+            <label htmlFor={`check_${prod}`} className="producto-label">
+              <input
+                type="checkbox"
+                id={`check_${prod}`}
+                checked={productos[prod] > 0}
+                onChange={(e) =>
+                  setProductos({
+                    ...productos,
+                    [prod]: e.target.checked ? 1 : 0,
+                  })
+                }
+              />
+              {prod.charAt(0).toUpperCase() + prod.slice(1)} (${precios[prod]})
+            </label>
 
-          {["gorra", "gafas", "medias", "auriculares"].map((prod) => (
-            <div key={prod} className="producto-item">
-              <label className="producto-label">
-                <input
-                  type="checkbox"
-                  checked={productos[prod] > 0}
-                  onChange={(e) =>
-                    setProductos({
-                      ...productos,
-                      [prod]: e.target.checked ? 1 : 0,
-                    })
-                  }
-                />
-                {prod.charAt(0).toUpperCase() + prod.slice(1)} (${precios[prod]})
-              </label>
-
-              {productos[prod] > 0 && (
-                <>
+            {productos[prod] > 0 && (
+              <>
+                <label htmlFor={`cantidad_${prod}`}>
+                  Cantidad:
                   <input
                     type="number"
                     min="1"
+                    id={`cantidad_${prod}`}
                     name={`cantidad_${prod}`}
                     value={productos[prod]}
                     onChange={handleChange}
                     className="producto-cantidad"
                   />
-                  <input type="hidden" name={`producto_${prod}`} value="Sí" />
-                </>
-              )}
-            </div>
-          ))}
+                </label>
+                <input type="hidden" name={`producto_${prod}`} value="Sí" />
+              </>
+            )}
+          </div>
+        ))}
 
-          {productosSeleccionados.length > 0 && (
-            <div className="carrito">
-              <h4>Mini Carrito:</h4>
-              <ul>
-                {productosSeleccionados.map(([nombre, cantidad]) => (
-                  <li key={nombre}>
-                    {nombre.charAt(0).toUpperCase() + nombre.slice(1)}: {cantidad} × ${precios[nombre]} = ${precios[nombre] * cantidad}
-                  </li>
-                ))}
-              </ul>
-              <p><strong>Total: ${totalCarrito}</strong></p>
-              <input type="hidden" name="total_carrito" value={totalCarrito} />
-            </div>
-          )}
-        </form>
+        {productosSeleccionados.length > 0 && (
+          <div className="carrito">
+            <h4>Mini Carrito:</h4>
+            <ul>
+              {productosSeleccionados.map(([nombre, cantidad]) => (
+                <li key={nombre}>
+                  {nombre.charAt(0).toUpperCase() + nombre.slice(1)}: {cantidad} × ${precios[nombre]} = ${precios[nombre] * cantidad}
+                </li>
+              ))}
+            </ul>
+            <p><strong>Total: ${totalCarrito}</strong></p>
+            <input type="hidden" name="total_carrito" value={totalCarrito} />
+          </div>
+        )}
 
         <div className="formularioh3">
           <h3>Declaración y aceptación</h3>
@@ -227,9 +203,8 @@ export default function Formulario() {
         </p>
 
         <p>
-          <label>
-            <input type="checkbox" name="acepta" required /> Acepto y firmo la
-            declaración
+          <label htmlFor="acepta">
+            <input type="checkbox" id="acepta" name="acepta" required /> Acepto y firmo la declaración
           </label>
         </p>
 
